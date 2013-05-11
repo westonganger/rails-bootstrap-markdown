@@ -1,6 +1,6 @@
 # Rails::Bootstrap::Markdown
 
-A rails gem for [Bootstrap Markdown](http://toopay.github.io/bootstrap-markdown/), rewritten to SCSS for use with [bootstrap-sass](https://github.com/thomas-mcdonald/bootstrap-sass)
+A rails gem for [Bootstrap Markdown](http://toopay.github.io/bootstrap-markdown/), rewritten to SCSS for use with [bootstrap-sass](https://github.com/thomas-mcdonald/bootstrap-sass).
 
 3rd party libraries included:
 
