@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.version       = Rails::Bootstrap::Markdown::VERSION
   gem.authors       = ["Danny Tatom"]
   gem.email         = ["dannytatom@gmail.com"]
-  gem.description   = %q{A Rails gem for Bootstrap Markdown}
+  gem.summary       = %q{A Rails gem for Bootstrap Markdown}
   gem.homepage      = "http://github.com/dannytatom/rails-bootstrap-markdown"
 
   gem.files         = `git ls-files`.split($/)
