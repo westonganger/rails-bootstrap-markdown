@@ -33,7 +33,7 @@ Or install it yourself as:
 ### Javascript
 
 ```
-//= requrie bootstrap-markdown
+//= require bootstrap-markdown
 ```
 
 ## Contributing
