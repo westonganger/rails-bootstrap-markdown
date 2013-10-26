@@ -1,14 +1,16 @@
 /**
- * Bootstrap-Markdown.css.scss
- *
- * Converted to SCSS by Danny Tatom @dannytatom
+ * Bootstrap-Markdown.less
  *
  * @author Taufan Aditya @taufanaditya
  * @copyright 2013 Taufan Aditya
  */
 
-@import "bootstrap/variables";
-@import "bootstrap/mixins";
+@import "bootstrap/variables"; // Point this into your bootstrap variables
+@import "bootstrap/mixins"; // Point this into your bootstrap variables
+
+// Hover state
+$color: $input-border-focus;
+$color-rgba: rgba(red($color), green($color), blue($color), .6);
 
 .md-editor {
   display: block;
@@ -17,11 +19,11 @@
   .md-header, .md-footer {
     display: block;
     padding: 6px 4px;
-    background: $body-bg;
+    background: $panel-default-heading-bg;
   }
 
   .md-preview {
-    background: $body-bg;
+    background: $panel-bg;
     border-top: 1px dashed $table-border-color;
     border-bottom: 1px dashed $table-border-color;
     min-height: 10px;
@@ -31,7 +33,7 @@
     font-family: $font-family-monospace;
     font-size: $font-size-base;
     outline: 0;
-    outline: thin dotted \9; /* IE6-9 */
+    outline: thin dotted  \9; /* IE6-9 */
     margin: 0;
     display: block;
     padding: 0;
@@ -49,14 +51,10 @@
     }
   }
 
-  // Hover state
   &.active {
-    @include box-shadow("inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)");
-
-    border-color: rgba(82,168,236,.8);
+    border-color: $color;
     outline: 0;
-    outline: thin dotted \9; /* IE6-9 */
 
-    @include transition(border linear .2s, box-shadow linear .2s);
+    @include box-shadow("inset 0 1px 1px rgba(0, 0, 0, 0.75), 0 0 0 8px rgba(#{$color-rgba})")
   }
 }
