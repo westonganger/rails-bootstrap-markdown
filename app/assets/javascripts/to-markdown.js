@@ -6,6 +6,10 @@
  *
  */
 
+if (typeof he !== 'object' && typeof require === 'function') {
+  var he = require('he');
+}
+
 var toMarkdown = function(string) {
 
   var ELEMENTS = [
@@ -58,7 +62,7 @@ var toMarkdown = function(string) {
     {
       patterns: 'code',
       replacement: function(str, attrs, innerHTML) {
-        return innerHTML ? '`' + innerHTML + '`' : '';
+        return innerHTML ? '`' + he.decode(innerHTML) + '`' : '';
       }
     },
     {
@@ -106,9 +110,10 @@ var toMarkdown = function(string) {
   // Pre code blocks
 
   string = string.replace(/<pre\b[^>]*>`([\s\S]*)`<\/pre>/gi, function(str, innerHTML) {
-    innerHTML = innerHTML.replace(/^\t+/g, '  '); // convert tabs to spaces (you know it makes sense)
-    innerHTML = innerHTML.replace(/\n/g, '\n    ');
-    return '\n\n    ' + innerHTML + '\n';
+    var text = he.decode(innerHTML);
+    text = text.replace(/^\t+/g, '  '); // convert tabs to spaces (you know it makes sense)
+    text = text.replace(/\n/g, '\n    ');
+    return '\n\n    ' + text + '\n';
   });
 
   // Lists
@@ -118,7 +123,7 @@ var toMarkdown = function(string) {
   // Make sure we are escaping the period not matching any character
   string = string.replace(/^(\s{0,3}\d+)\. /g, '$1\\. ');
 
-  // Converts lists that have no child lists (of same type) first, then works it's way up
+  // Converts lists that have no child lists (of same type) first, then works its way up
   var noChildrenRegex = /<(ul|ol)\b[^>]*>(?:(?!<ul|<ol)[\s\S])*?<\/\1>/gi;
   while(string.match(noChildrenRegex)) {
     string = string.replace(noChildrenRegex, function(str) {
