@@ -1,7 +1,7 @@
 module Rails
   module Bootstrap
     module Markdown
-      VERSION = "1.0.0"
+      VERSION = "2.6.0"
     end
   end
 end
