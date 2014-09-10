@@ -7,6 +7,7 @@ A rails gem for [Bootstrap Markdown](http://toopay.github.io/bootstrap-markdown/
 - http://toopay.github.io/bootstrap-markdown/
 - https://github.com/domchristie/to-markdown
 - https://github.com/evilstreak/markdown-js
+- https://github.com/mathiasbynens/he
 
 ## Installation
 
@@ -32,8 +33,10 @@ Or install it yourself as:
 
 ### Javascript
 
+To require all 3rd party libraries at once, use:
+
 ```
-//= require bootstrap-markdown
+//= require bootstrap-markdown-bundle
 ```
 
 ## Contributing
