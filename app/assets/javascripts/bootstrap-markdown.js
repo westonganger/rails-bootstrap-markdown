@@ -1358,6 +1358,13 @@
     }
   }
 
+  // Initialize default textarea in html
+  var initDefaultTextareas = function (){
+    $('textarea[data-provide="markdown"]').each(function(){
+      initMarkdown($(this))
+    })
+  };
+
   $(document)
     .on('click.markdown.data-api', '[data-provide="markdown-editable"]', function (e) {
       initMarkdown($(this))
@@ -1370,9 +1377,10 @@
       analyzeMarkdown(e)
     })
     .ready(function(){
-      $('textarea[data-provide="markdown"]').each(function(){
-        initMarkdown($(this))
-      })
+      initDefaultTextareas()
     })
+    .on('page:load', function(){
+      initDefaultTextareas()
+    }) // Turbolinks trigger
 
 }(window.jQuery);
